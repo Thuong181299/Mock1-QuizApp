@@ -12,6 +12,11 @@ import {
 } from "redux-persist";
 import { encryptTransform } from "redux-persist-transform-encrypt";
 import storage from "redux-persist/lib/storage";
+import authReducer from "./auth/reducer";
+
+const reducer = combineReducers({
+  authentication: authReducer,
+});
 
 const persistConfig = {
   key: "root",
@@ -25,3 +30,19 @@ const persistConfig = {
     }),
   ],
 };
+
+const persistedReducer = persistReducer(persistConfig, reducer);
+
+const store = configureStore({
+  reducer: persistedReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
+});
+
+export const persistor = persistStore(store);
+
+export default store;
