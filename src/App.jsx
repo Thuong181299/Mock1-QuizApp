@@ -20,6 +20,7 @@ import {
 } from "./redux/auth/selector";
 
 import { refresh } from "./redux/auth/action";
+import Questions from "./pages/Questions";
 
 function App() {
   const role = useSelector(selectRole);
@@ -49,6 +50,7 @@ function App() {
               </Route>
               <Route element={<UserRole accessToken={accessToken} role={role} />}>
                 <Route path="/quizsetting" element={<QuizSetting />} />
+                <Route path="/questions" element={<Questions />} />
               </Route>
             </Route>
           </Routes>
