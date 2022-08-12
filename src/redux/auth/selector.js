@@ -1,6 +1,6 @@
 import { createSelector } from "reselect";
 
-// trỏ đến State của reducer authentication
+// trỏ đến state của reducer authentication
 const selectAuthentication = (state) => state.authentication;
 
 // trỏ đến item auth của authSlice
@@ -15,7 +15,7 @@ export const selectLoading = createSelector(
   (authSlice) => authSlice?.loading // authSlice && authSlice.loading
 );
 
-//-------------user-------------------------------------------
+//---------------user--------------------------------
 
 const selectUser = createSelector([selectAuth], (auth) => auth?.user);
 
@@ -29,7 +29,7 @@ export const selectAvatar = createSelector([selectUser], (user) => user?.avatar)
 
 export const selectEmail = createSelector([selectUser], (user) => user?.email);
 
-//--------------tokens------------------------------------------
+//---------------tokens--------------------------------
 
 const selectTokens = createSelector([selectAuth], (auth) => auth?.tokens);
 
