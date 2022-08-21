@@ -1,0 +1,23 @@
+.form {
+    margin: 10px 20px;
+}
+
+.text {
+    font-size: 14px;
+}
+
+.change {
+    color: #1890ff;
+    cursor: pointer;
+    &:hover {
+        opacity: 0.7;
+    }
+}
+
+.container {
+    margin: auto;
+    min-width: 580px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}

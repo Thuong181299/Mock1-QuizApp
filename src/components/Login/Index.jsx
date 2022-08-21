@@ -4,7 +4,7 @@ import { Form, Input, Button, Typography, Row, Col } from "antd";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
-import { login } from "../../redux/auth/action";
+import { login } from "../../redux/auth/actions";
 
 const formItemLayout = {
   labelCol: {

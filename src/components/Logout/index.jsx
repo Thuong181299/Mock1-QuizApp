@@ -1,5 +1,5 @@
-import "antd/dist/antd.css";
 import styles from "./Logout.module.scss";
+import "antd/dist/antd.css";
 import { Avatar, Popover, Row, Typography, Button } from "antd";
 import { LogoutOutlined } from "@ant-design/icons";
 import { useDispatch, useSelector } from "react-redux";
@@ -12,7 +12,7 @@ import {
   selectRole,
 } from "../../redux/auth/selector";
 
-import { logout } from "../../redux/auth/action";
+import { logout } from "../../redux/auth/actions";
 
 function Logout() {
   const { Text } = Typography;
@@ -29,8 +29,16 @@ function Logout() {
 
   function title() {
     return (
-      <div>
-        <Avatar src={avatar} />
+      <div className={styles.title}>
+        <Avatar
+          style={{ marginBottom: "10px" }}
+          src={avatar}
+          size={{
+            xs: 34,
+            md: 40,
+            xl: 50,
+          }}
+        />
         <br />
         <Text>
           {username} ({role})
@@ -43,8 +51,8 @@ function Logout() {
 
   function content() {
     return (
-      <div>
-        <Button onClick={handleLogout}>
+      <div className={styles.content}>
+        <Button style={{ borderRadius: "8px" }} onClick={handleLogout}>
           <LogoutOutlined />
           Log Out
         </Button>
@@ -56,7 +64,15 @@ function Logout() {
     <div>
       <Row justify="end">
         <Popover placement="bottomRight" trigger="click" title={title} content={content}>
-          <Avatar className={styles.avatar} src={avatar} />
+          <Avatar
+            className={styles.avatar}
+            src={avatar}
+            size={{
+              xs: 30,
+              md: 40,
+              xl: 50,
+            }}
+          />
         </Popover>
       </Row>
     </div>

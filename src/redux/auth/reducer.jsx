@@ -20,7 +20,7 @@ const authSlice = createSlice({
       state.auth.tokens = action.payload;
     },
     calculateScore: (state, action) => {
-      const totalTrue = action.payloa.filter((item) => item.result === true);
+      const totalTrue = action.payload.filter((item) => item.result === true);
       state.auth.user.score = totalTrue.length;
     },
     logoutSuccess: (state) => {
@@ -29,7 +29,6 @@ const authSlice = createSlice({
   },
 });
 
-export const { loading, loadingDone, loginSuccess, refreshSuccess, logoutSuccess, calculateScore } =
+export const { loading, loadingDone, loginSuccess, refreshSuccess, calculateScore, logoutSuccess } =
   authSlice.actions;
-
 export default authSlice.reducer;

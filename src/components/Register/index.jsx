@@ -4,7 +4,7 @@ import { Form, Input, Checkbox, Button, Typography, Row, Col } from "antd";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
-import { register } from "../../redux/auth/action";
+import { register } from "../../redux/auth/actions";
 
 const formItemLayout = {
   labelCol: {

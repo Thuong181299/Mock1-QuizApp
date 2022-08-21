@@ -16,6 +16,7 @@ export const register = (values, form) => async (dispatch) => {
     });
     form.resetFields();
   } catch (error) {
+    console.log(error);
   } finally {
     dispatch(loadingDone());
   }
