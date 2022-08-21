@@ -16,7 +16,9 @@ export const register = (values, form) => async (dispatch) => {
     });
     form.resetFields();
   } catch (error) {
-    console.log(error);
+    Modal.error({
+      title: "Register failed",
+    });
   } finally {
     dispatch(loadingDone());
   }

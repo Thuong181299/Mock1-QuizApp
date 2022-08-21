@@ -37,7 +37,7 @@ const tailFormItemLayout = {
   },
 };
 
-export default function Login() {
+function Login() {
   const { Title, Text } = Typography;
 
   const navigate = useNavigate();
@@ -51,12 +51,13 @@ export default function Login() {
     console.log("Received values of form: ", values);
     dispatch(login(values));
   };
+
   return (
     <div>
       <Row>
         <Col span={12} offset={6} className={styles.container}>
           <Title level={2} style={{ textAlign: "center", margin: 20 }}>
-            Login In
+            Log In
           </Title>
           <Form
             {...formItemLayout}
@@ -79,28 +80,30 @@ export default function Login() {
             >
               <Input />
             </Form.Item>
+
             <Form.Item
               name="password"
               label="Password"
               rules={[
                 {
                   required: true,
-                  message: "Please input your Password",
+                  message: "Please input your Password!",
                 },
               ]}
             >
               <Input.Password />
             </Form.Item>
-            <Form.Item>
+
+            <Form.Item {...tailFormItemLayout}>
               <Button type="primary" htmlType="submit" className={styles.button}>
                 Log In
               </Button>
               <br />
               <br />
-              <span>Or</span>
+              <span> Or </span>
               <Text italic underline className={styles.change} onClick={handleChange}>
                 {" "}
-                Register now
+                register now!
               </Text>
             </Form.Item>
           </Form>
@@ -109,3 +112,5 @@ export default function Login() {
     </div>
   );
 }
+
+export default Login;
